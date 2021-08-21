@@ -40,22 +40,6 @@ func main() {
 					}
 					return nil
 				},
-				Flags: []cli.Flag{
-					&cli.StringFlag{
-						Name:        "namespace",
-						Aliases:     []string{"n"},
-						Value:       "default",
-						Usage:       "namespace of the source resource",
-						Destination: namespace,
-					},
-					&cli.StringFlag{
-						Name:        "target-namespace",
-						Aliases:     []string{"tn"},
-						Value:       "default",
-						Usage:       "target namespace in which resource will be copied",
-						Destination: targetNamespace,
-					},
-				},
 			},
 			{
 				Name:      "secret",
@@ -69,22 +53,6 @@ func main() {
 					}
 					return nil
 				},
-				Flags: []cli.Flag{
-					&cli.StringFlag{
-						Name:        "namespace",
-						Aliases:     []string{"n"},
-						Value:       "default",
-						Usage:       "namespace of the source resource",
-						Destination: namespace,
-					},
-					&cli.StringFlag{
-						Name:        "target-namespace",
-						Aliases:     []string{"tn"},
-						Value:       "default",
-						Usage:       "target namespace in which resource will be copied",
-						Destination: targetNamespace,
-					},
-				},
 			},
 		},
 		Flags: []cli.Flag{
@@ -94,6 +62,20 @@ func main() {
 				EnvVars:     []string{"KUBECONFIG"},
 				Destination: kubeconfig,
 				Value:       defaultKubeconfig(),
+			},
+			&cli.StringFlag{
+				Name:        "namespace",
+				Aliases:     []string{"n"},
+				Value:       "default",
+				Usage:       "namespace of the source resource",
+				Destination: namespace,
+			},
+			&cli.StringFlag{
+				Name:        "target-namespace",
+				Aliases:     []string{"tn"},
+				Value:       "default",
+				Usage:       "target namespace in which resource will be copied",
+				Destination: targetNamespace,
 			},
 		},
 	}
