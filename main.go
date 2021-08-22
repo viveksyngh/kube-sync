@@ -7,6 +7,7 @@ import (
 
 	"github.com/urfave/cli/v2"
 	"github.com/viveksyngh/kube-copy/cmd"
+	"github.com/viveksyngh/kube-copy/pkg/syncer"
 	"k8s.io/client-go/util/homedir"
 )
 
@@ -38,7 +39,12 @@ func main() {
 					if err != nil {
 						return err
 					}
-					return nil
+					client, err := cmd.CreateClientset(c.String("kubeconfig"))
+					if err != nil {
+						return err
+					}
+					cs := &syncer.ConfigMapSyncer{}
+					return cs.Sync(client, c.Args().First(), c.String("namespace"), c.String("target-namespace"))
 				},
 			},
 			{
@@ -51,7 +57,12 @@ func main() {
 					if err != nil {
 						return err
 					}
-					return nil
+					client, err := cmd.CreateClientset(c.String("kubeconfig"))
+					if err != nil {
+						return err
+					}
+					cs := &syncer.SecretSyncer{}
+					return cs.Sync(client, c.Args().First(), c.String("namespace"), c.String("target-namespace"))
 				},
 			},
 		},
