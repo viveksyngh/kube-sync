@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 
 	"github.com/urfave/cli/v2"
-	"github.com/viveksyngh/kube-copy/cmd"
-	"github.com/viveksyngh/kube-copy/pkg/syncer"
+	"github.com/viveksyngh/kube-sync/cmd"
+	"github.com/viveksyngh/kube-sync/pkg/syncer"
 	"k8s.io/client-go/util/homedir"
 )
 
@@ -26,8 +26,8 @@ func defaultKubeconfig() string {
 
 func main() {
 	app := &cli.App{
-		Name:     "kube-copy",
-		HelpName: "kube-copy",
+		Name:     "kube-sync",
+		HelpName: "kube-sync",
 		Commands: []*cli.Command{
 			{
 				Name:      "configmap",

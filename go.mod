@@ -1,4 +1,4 @@
-module github.com/viveksyngh/kube-copy
+module github.com/viveksyngh/kube-sync
 
 go 1.16
 
