@@ -26,8 +26,10 @@ func defaultKubeconfig() string {
 
 func main() {
 	app := &cli.App{
-		Name:     "kube-sync",
-		HelpName: "kube-sync",
+		Name:        "kube-sync",
+		Usage:       "A CLI to sync kubernetes resources",
+		Description: "A CLI to sync resources in a kubernetes cluster",
+		HelpName:    "kube-sync",
 		Commands: []*cli.Command{
 			{
 				Name:      "configmap",
