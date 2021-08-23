@@ -3,7 +3,7 @@ Kube Sync is a CLI application to copy/sync configmap and secrets from one names
 
 # Motivation
 
-While working with kubernetes, all of us might have encountered a situation where applications deployed in new namespace are failing because of missing image pull secret which we forgot to create. This tool help us in copying the such secrets or configmap from already existing namespace to a new namespace.
+While working with kubernetes, all of us might have encountered a situation where applications deployed in a new namespace were failing because of missing image pull secret, which we forgot to create. This tool help us in copying such secrets or configmaps from already existing namespace to a new namespace.
 
 # Installation
 
@@ -11,7 +11,6 @@ While working with kubernetes, all of us might have encountered a situation wher
 # Usage
 
 ```
-kube-sync help
 NAME:
    kube-sync - A CLI to sync kubernetes resources
 
@@ -24,6 +23,7 @@ DESCRIPTION:
 COMMANDS:
    configmap, cm  Copy a configmap from one namespace to another
    secret, sec    Copy a secret from one namespace to another
+   version, v     print version
    help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
