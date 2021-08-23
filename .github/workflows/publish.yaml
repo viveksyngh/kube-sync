@@ -33,8 +33,10 @@ jobs:
         run: cd bin && ../ci/hashgen.sh && cd ../
       - 
         name: Upload binaries and their SHA to Github Release
-        uses: alexellis/upload-assets@0.2.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: svenstaro/upload-release-action@v2
         with:
-          asset_paths: '["./bin/kube-sync*"]'
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: bin/kube-sync*
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true
