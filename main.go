@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -8,6 +9,7 @@ import (
 	"github.com/urfave/cli/v2"
 	"github.com/viveksyngh/kube-sync/cmd"
 	"github.com/viveksyngh/kube-sync/pkg/syncer"
+	"github.com/viveksyngh/kube-sync/pkg/version"
 	"k8s.io/client-go/util/homedir"
 )
 
@@ -65,6 +67,16 @@ func main() {
 					}
 					cs := &syncer.SecretSyncer{}
 					return cs.Sync(client, c.Args().First(), c.String("namespace"), c.String("target-namespace"))
+				},
+			},
+			{
+				Name:    "version",
+				Aliases: []string{"v"},
+				Usage:   "print version",
+				Action: func(c *cli.Context) error {
+					fmt.Printf("Version: %s\n", version.Version)
+					fmt.Printf("SHA: %s\n", version.GitCommit)
+					return nil
 				},
 			},
 		},
