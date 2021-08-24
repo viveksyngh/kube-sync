@@ -7,7 +7,27 @@ While working with kubernetes, all of us might have encountered a situation wher
 
 # Installation
 
+Stable binaries are also available on the [releases](https://github.com/viveksyngh/kube-sync/releases) page. Stable releases are generally recommended for CI usage in particular. To install, download the binary for your platform from "Assets" and place this into your $PATH:
 
+## For Linux:
+```
+curl -Lo ./kube-sync https://github.com/viveksyngh/kube-sync/releases/download/v0.1.0/kube-sync-$(uname)-amd64
+chmod +x ./kube-sync
+mv ./kube-sync /usr/local/bin/kube-sync
+```
+
+## On macOS via Bash:
+```
+curl -Lo ./kube-sync https://github.com/viveksyngh/kube-sync/releases/download/v0.1.0/kube-sync-darwin-amd64
+chmod +x ./kube-sync
+mv ./kube-sync /usr/local/bin/kube-sync
+```
+## On Windows:
+```
+curl.exe -Lo kube-sync-windows-amd64.exe https://github.com/viveksyngh/kube-sync/releases/download/v0.1.0/kube-sync-windows-amd64
+
+Move-Item .\kube-sync-windows-amd64.exe  c:\some-dir-in-your-PATH\kube-sync-windows-amd64.exe 
+```
 # Usage
 
 ```
