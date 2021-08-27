@@ -46,3 +46,7 @@ build-darwin-arm64:
 
 .PHONY: build-all
 build-all: build-linux-amd64 build-linux-arm64 build-windows-amd64 build-darwin-amd64 build-darwin-arm64
+
+.PHONY: test-unit
+test-unit:
+	GO111MODULE=on go test ./... -cover
