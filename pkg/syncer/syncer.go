@@ -5,5 +5,5 @@ import (
 )
 
 type Syncer interface {
-	Sync(*kubernetes.Clientset, string, string, string) error
+	Sync(kubernetes.Interface, string, string, string) error
 }

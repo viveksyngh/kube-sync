@@ -15,7 +15,7 @@ type SecretSyncer struct {
 
 var _ Syncer = &SecretSyncer{}
 
-func (cm *SecretSyncer) Sync(client *kubernetes.Clientset, name, namespace, targetNamespace string) error {
+func (cm *SecretSyncer) Sync(client kubernetes.Interface, name, namespace, targetNamespace string) error {
 	secret, err := client.CoreV1().Secrets(namespace).Get(context.TODO(), name, metav1.GetOptions{})
 	if err != nil {
 		return err
@@ -24,7 +24,7 @@ func (cm *SecretSyncer) Sync(client *kubernetes.Clientset, name, namespace, targ
 	_, err = client.CoreV1().Secrets(targetNamespace).Get(context.TODO(), name, metav1.GetOptions{})
 
 	if err == nil {
-		return fmt.Errorf("secret with name `%s` already exists in namepsace `%s`", name, targetNamespace)
+		return fmt.Errorf(`secret with name "%s" already exists in namepsace "%s"`, name, targetNamespace)
 	}
 
 	if apierrors.IsNotFound(err) {

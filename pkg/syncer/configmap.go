@@ -16,7 +16,7 @@ type ConfigMapSyncer struct {
 
 var _ Syncer = &ConfigMapSyncer{}
 
-func (cm *ConfigMapSyncer) Sync(client *kubernetes.Clientset, name, namespace, targetNamespace string) error {
+func (cm *ConfigMapSyncer) Sync(client kubernetes.Interface, name, namespace, targetNamespace string) error {
 	configmap, err := client.CoreV1().ConfigMaps(namespace).Get(context.TODO(), name, metav1.GetOptions{})
 	if err != nil {
 		return err
@@ -25,7 +25,7 @@ func (cm *ConfigMapSyncer) Sync(client *kubernetes.Clientset, name, namespace, t
 	_, err = client.CoreV1().ConfigMaps(targetNamespace).Get(context.TODO(), name, metav1.GetOptions{})
 
 	if err == nil {
-		return fmt.Errorf("configmap with name `%s` already exists in namepsace `%s`", name, targetNamespace)
+		return fmt.Errorf(`configmap with name "%s" already exists in namepsace "%s"`, name, targetNamespace)
 	}
 
 	if apierrors.IsNotFound(err) {
