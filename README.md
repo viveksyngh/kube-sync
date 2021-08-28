@@ -1,9 +1,9 @@
 # kube-sync
-Kube Sync is a CLI application to copy/sync configmap and secrets from one namespace to another.
+Kube Sync is a CLI application to copy/sync configmaps and secrets from one namespace to another.
 
 # Motivation
 
-While working with kubernetes, all of us might have encountered a situation where applications deployed in a new namespace were failing because of missing image pull secret, which we forgot to create. This tool help us in copying such secrets or configmaps from already existing namespace to a new namespace.
+While working with kubernetes, all of us might have encountered a situation where applications deployed in a new namespace were failing because of missing image pull secret, which we forgot to create in the new namespace. This tool help us in copying such secrets or configmaps from already existing namespace to a new namespace.
 
 # Installation
 
