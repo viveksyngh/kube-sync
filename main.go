@@ -29,15 +29,15 @@ func defaultKubeconfig() string {
 func main() {
 	app := &cli.App{
 		Name:        "kube-sync",
-		Usage:       "A CLI to sync kubernetes resources",
-		Description: "A CLI to sync resources in a kubernetes cluster",
+		Usage:       "A CLI to sync Kubernetes resources",
+		Description: "A CLI to sync resources in a Kubernetes cluster",
 		HelpName:    "kube-sync",
 		Commands: []*cli.Command{
 			{
 				Name:      "configmap",
 				Aliases:   []string{"cm"},
 				ArgsUsage: "NAME",
-				Usage:     "Copy a configmap from one namespace to another",
+				Usage:     "Copy a ConfigMap from one namespace to another",
 				Action: func(c *cli.Context) error {
 					err := cmd.Validate(c)
 					if err != nil {
@@ -99,7 +99,7 @@ func main() {
 				Name:        "target-namespace",
 				Aliases:     []string{"tn"},
 				Value:       "default",
-				Usage:       "target namespace in which resource will be copied",
+				Usage:       "target namespace where resource will be copied",
 				Destination: targetNamespace,
 			},
 		},

@@ -1,9 +1,9 @@
 # kube-sync
-Kube Sync is a CLI application to copy/sync configmaps and secrets from one namespace to another.
+Kube Sync is a CLI application to copy/sync ConfigMaps and secrets from one namespace to another.
 
 # Motivation
 
-While working with kubernetes, all of us might have encountered a situation where applications deployed in a new namespace were failing because of missing image pull secret, which we forgot to create in the new namespace. This tool help us in copying such secrets or configmaps from already existing namespace to a new namespace.
+While working with Kubernetes, all of us might have encountered a situation where applications deployed in a new namespace were failing because of missing image pull secret, which we forgot to create in the new namespace. This tool helps us in copying such secrets or ConfigMaps from an already existing namespace to a new namespace.
 
 # Installation
 
@@ -25,7 +25,6 @@ mv ./kube-sync /usr/local/bin/kube-sync
 ## On Windows:
 ```
 curl.exe -Lo kube-sync-windows-amd64.exe https://github.com/viveksyngh/kube-sync/releases/download/v0.1.0/kube-sync-windows-amd64
-
 Move-Item .\kube-sync-windows-amd64.exe  c:\some-dir-in-your-PATH\kube-sync-windows-amd64.exe 
 ```
 # Usage
@@ -47,7 +46,7 @@ COMMANDS:
    help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --kubeconfig value                    path to the kubeconfig file to use for CLI requests (default: "/Users/svivekkumar/.kube/config") [$KUBECONFIG]
+   --kubeconfig value                    path to the kubeconfig file to use for CLI requests (default: "~/.kube/config") [$KUBECONFIG]
    --namespace value, -n value           namespace of the source resource (default: "default")
    --target-namespace value, --tn value  target namespace in which resource will be copied (default: "default")
    --help, -h                            show help (default: false)
