@@ -47,7 +47,7 @@ COMMANDS:
    help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --kubeconfig value                    path to the kubeconfig file to use for CLI requests (default: "/Users/svivekkumar/.kube/config") [$KUBECONFIG]
+   --kubeconfig value                    path to the kubeconfig file to use for CLI requests (default: "~/.kube/config") [$KUBECONFIG]
    --namespace value, -n value           namespace of the source resource (default: "default")
    --target-namespace value, --tn value  target namespace in which resource will be copied (default: "default")
    --help, -h                            show help (default: false)
