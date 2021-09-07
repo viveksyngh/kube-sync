@@ -12,7 +12,7 @@ func Validate(ctx *cli.Context) error {
 	}
 
 	if len(ctx.String("kubeconfig")) == 0 {
-		return fmt.Errorf("Config for connecting with kubernetes cluster is missing. Either set KUBECONFIG environment variable or `--kubeconfig`")
+		return fmt.Errorf("Config for connecting with the Kubernetes cluster is missing. Either set KUBECONFIG environment variable or `--kubeconfig`")
 	}
 
 	if ctx.String("namespace") == ctx.String("target-namespace") {
