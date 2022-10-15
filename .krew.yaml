@@ -1,0 +1,66 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: sync
+spec:
+  version: {{ .TagName }}
+  homepage: https://github.com/viveksyngh/kube-sync
+  platforms:
+  - selector:
+      matchLabels:
+        os: darwin
+        arch: amd64
+    uri: "https://github.com/viveksyngh/kube-sync/releases/download/{{ .TagName }}/kube-sync-darwin-amd64" .TagName }}
+    sha256: "https://github.com/viveksyngh/kube-sync/releases/download/{{ .TagName }}/kube-sync-darwin-amd64.sha256sum
+" .TagName }}
+    files:
+    - from: "*"
+      to: "."
+    bin: kubectl-sync
+  - selector:
+      matchLabels:
+        os: darwin
+        arch: arm64
+    uri: "https://github.com/viveksyngh/kube-sync/releases/download/{{ .TagName }}/kube-sync-darwin-arm64" .TagName }}
+    sha256: "https://github.com/viveksyngh/kube-sync/releases/download/{{ .TagName }}/kube-sync-darwin-arm64.sha256sum
+" .TagName }}
+    files:
+    - from: "*"
+      to: "."
+    bin: kubectl-sync
+  - selector:
+      matchLabels:
+        os: linux
+        arch: amd64
+    uri: "https://github.com/viveksyngh/kube-sync/releases/download/{{ .TagName }}/kube-sync-linux-amd64" .TagName }}
+    sha256: "https://github.com/viveksyngh/kube-sync/releases/download/{{ .TagName }}/kube-sync-linux-amd64.sha256sum
+" .TagName }}
+    files:
+    - from: "*"
+      to: "."
+    bin: kubectl-sync
+  - selector:
+      matchLabels:
+        os: linux
+        arch: arm64
+    uri: "https://github.com/viveksyngh/kube-sync/releases/download/{{ .TagName }}/kube-sync-linux-arm64" .TagName }}
+    sha256: "https://github.com/viveksyngh/kube-sync/releases/download/{{ .TagName }}/kube-sync-linux-arm64.sha256sum
+" .TagName }}
+    files:
+    - from: "*"
+      to: "."
+    bin: kubectl-sync
+  - selector:
+      matchLabels:
+        os: windows
+        arch: amd64
+    uri: "https://github.com/viveksyngh/kube-sync/releases/download/{{ .TagName }}/kube-sync-windows-amd64" .TagName }}
+    sha256: "https://github.com/viveksyngh/kube-sync/releases/download/{{ .TagName }}/kube-sync-windows-amd64.sha256sum
+" .TagName }}
+    files:
+    - from: "*"
+      to: "."
+    bin: kubectl-sync
+  shortDescription: Sync/Copy ConfigMaps and secrets from one namespace to another.
+  description: |
+    CLI plugin to copy/sync ConfigMaps and secrets from one namespace to another.
